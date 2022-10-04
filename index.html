@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Frontend Mentor | Interactive rating component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <main id="app">
+        <div v-if="!voted" class="rating">
+
+            <img class="decor" src="./images/icon-star.svg" alt="">
+
+            <h2>How did we do?</h2>
+
+            <p>Please let us know how we did with your support request. All feedback is appreciated
+                to help us improve our offering!</p>
+            <fieldset>
+                <label><input type="radio" value="1" v-model="pick"><span>1</span></label>
+                <label><input type="radio" value="2" v-model="pick"><span>2</span></label>
+                <label><input type="radio" value="3" v-model="pick"><span>3</span></label>
+                <label><input type="radio" value="4" v-model="pick"><span>4</span></label>
+                <label><input type="radio" value="5" v-model="pick"><span>5</span></label>
+            </fieldset>
+
+            <button v-on:click="submitRating">Submit</button>
+
+        </div>
+
+        <div v-if="voted" class="thank-you">
+
+            <img src="./images/illustration-thank-you.svg" alt="">
+
+            <div class="result">
+                You selected {{pick}} out of 5
+            </div>
+
+            <h2>Thank you!</h2>
+
+            <p>We appreciate you taking the time to give a rating. If you ever need more support,
+                don’t hesitate to get in touch!</p>
+
+        </div>
+    </main>
+    <script src="./app.js"></script>
+</body>
+
+</html>
