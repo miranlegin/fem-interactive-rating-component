@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/miranlegin/fem-interactive-rating-component](https://github.com/miranlegin/fem-interactive-rating-component)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://frontend-mentor-challenge19.netlify.app/](https://frontend-mentor-challenge19.netlify.app/)
 
 ## My process
 
