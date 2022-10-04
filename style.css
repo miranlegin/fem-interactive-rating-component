@@ -90,21 +90,28 @@ select {
 }
 
 body {
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+
   font-weight: var(--fw-400);
   font-family: var(--ff-base);
   font-size: var(--fs-base);
+
   background-color: var(--blue-900);
   color: var(--grey-100);
-  padding: 1.5rem;
-  display: grid;
-  place-items: center;
 }
 
-main {
+.wrapper {
+  position: relative;
   max-width: 412px;
+}
+
+.card {
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: clamp(1.5rem, 1.0229rem + 2.0356vw, 2rem);
   padding-bottom: 2rem;
+
   background-image: radial-gradient(
     98.96% 98.96% at 50% 0%,
     #232a34 0%,
@@ -112,25 +119,31 @@ main {
   );
 }
 
-.decor {
-  background-color: var(--blue-700);
-  border-radius: 50%;
-  padding: 1rem;
-  margin-bottom: 1.875rem;
-}
-
 h2 {
-  color: var(--white);
-  font-size: 1.5rem;
-  line-height: 1.25;
   margin-bottom: 0.625rem;
+
+  font-weight: var(--fw-700);
+  font-size: clamp(1.5rem, 1.2615rem + 1.0178vw, 1.75rem);
+  line-height: 1.25;
+
+  color: var(--white);
 }
 
 p {
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-fieldset {
+/* RATING CARD */
+
+.decor-1 {
+  margin-bottom: 1.875rem;
+  border-radius: 50%;
+  padding: 1rem;
+
+  background-color: var(--blue-700);
+}
+
+.inputs {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -140,59 +153,72 @@ fieldset {
   padding-block: 1.5rem;
 }
 
-label > span {
-  background-color: var(--blue-700);
-  color: var(--grey-100);
+.input-label {
+  display: grid;
+  place-items: center;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 1rem;
+
+  font-weight: var(--fw-700);
+  font-size: clamp(0.875rem, 0.7557rem + 0.5089vw, 1rem);
   line-height: 1.5;
+
+  background-color: var(--blue-700);
+  color: var(--grey-100);
+
+  transition: 0.25s ease;
 }
 
-label > span:hover {
-  background-color: var(--grey-100);
+.input-label:hover {
+  background-color: var(--primary);
   color: var(--white);
+
   cursor: pointer;
 }
 
-input:checked + span {
-  background-color: var(--primary);
+.inputs input:checked + .input-label {
+  background-color: var(--grey-100);
   color: var(--white);
 }
 
-input {
-  visibility: hidden;
+.inputs input {
   position: absolute;
+  visibility: hidden;
 }
 
-button {
+.submit {
   width: 100%;
-  background-color: var(--primary);
-  color: var(--white);
   margin: 0;
   border: 0;
   border-radius: 50vw;
   padding: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+
+  font-weight: var(--fw-700);
   font-size: var(--fs-base);
   line-height: 1.25;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  background-color: var(--primary);
+  color: var(--white);
+
   cursor: pointer;
+  transition: 0.25s ease;
 }
 
-button:hover {
+.submit:hover {
   background-color: var(--white);
   color: var(--primary);
 }
+
+/* THANK YOU CARD */
 
 .thank-you {
   text-align: center;
 }
 
-.thank-you img {
+.decor-2 {
   margin-inline: auto;
 }
 
@@ -204,4 +230,24 @@ button:hover {
 
   background-color: var(--blue-700);
   color: var(--primary);
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.75s cubic-bezier(0.35, 0, 0.55, 1);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(-2rem);
+}
+
+.slide-up-leave-active .decor-1 {
+  transform: rotate(0.6turn);
+  transition: 0.75s;
 }
