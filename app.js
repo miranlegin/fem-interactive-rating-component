@@ -3,6 +3,7 @@ const app = Vue.createApp({
     return {
       voted: false,
       pick: 0,
+      inputs: [1, 2, 3, 4, 5],
     };
   },
   methods: {
